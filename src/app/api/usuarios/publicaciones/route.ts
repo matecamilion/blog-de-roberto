@@ -18,6 +18,5 @@ export async function POST(req: Request) {
     return new Response("La publicación ya existe.", { status: 400 }); 
   }
 
-
   return new Response(JSON.stringify(publicacion), { status: 200 });
 } 
