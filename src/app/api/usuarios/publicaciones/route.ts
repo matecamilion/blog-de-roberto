@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 export async function POST(req: Request) {
   const publicacion = await req.json();
 
-  const publicacionEnDB = await prisma.publicacion.findUnique({
+  const publicacionEnDB = await prisma.publicacion.findMany({
     where: {
       id: publicacion.id,
       titulo: publicacion.titulo,
