@@ -1,6 +1,8 @@
+import { UserProvider } from '@/context/UserContext'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +18,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <UserProvider>
+        <header>
+        <h1>Blog de roberto</h1>
+        <nav>
+          <ul>
+          <Link href="/auth/registrarse">Registrarse</Link>
+          <Link href="/auth/iniciar-sesion">Iniciar sesion</Link>
+
+          </ul>
+        </nav>
+        
+        </header> 
+          {children}
+        </UserProvider>   
+      </body>
     </html>
   )
 }

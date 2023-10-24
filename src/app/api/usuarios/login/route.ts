@@ -9,10 +9,10 @@ export async function POST(req: Request) {
   const usuario = await req.json();
 
   if (!usuario.email.match(emailRegex))
-    return new Response("Email invalido!", { status: 400 });
+    return new Response(JSON.stringify({msg: "Email invalido!"}), { status: 400 });
 
   if (!usuario.password.match(passwordRegex))
-    return new Response("Password invalido!", { status: 400 });
+    return new Response(JSON.stringify({msg: "Password invalido!"}), { status: 400 });
 
   const usuarioEnDB = await prisma.usuario.findUnique({
     where: {
@@ -20,7 +20,7 @@ export async function POST(req: Request) {
     },
   });
 
-  if (!usuarioEnDB) return new Response("Cuenta no existe!", { status: 403 });
+  if (!usuarioEnDB) return new Response(JSON.stringify({msg: "Cuenta no existe!"}), { status: 403 });
 
   const contrasenaValida = await compare(
     usuario.password,
@@ -28,7 +28,7 @@ export async function POST(req: Request) {
   );
 
   if (!contrasenaValida)
-    return new Response("Contrasena invalida!", { status: 401 });
+    return new Response(JSON.stringify({msg: "Contrasena invalida!"}), { status: 401 });
 
   const token = sign(usuarioEnDB, process.env.TOKEN_SECRET as string, {
     expiresIn: "7d",
