@@ -49,8 +49,7 @@ export default function FormularioDeInicioSesion() {
 
                 const decoded = jwt.decode(token)
                 setUser({ ...datosAEnviar, decoded })
-
-                
+             
 
                 alert(`Bienvenido!`),
                 router.push("/perfil")
@@ -62,9 +61,6 @@ export default function FormularioDeInicioSesion() {
         <input ref={emailRef} type="email" placeholder="Email"/>
         <input ref={passwordRef} type="password" placeholder="Contraseña"/>
         <input type="submit" value="Iniciar sesion" />
-        
-
-
     </form>
   )
 }
