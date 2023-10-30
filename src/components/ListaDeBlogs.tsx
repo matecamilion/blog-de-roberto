@@ -23,7 +23,6 @@ export default function ListaDeBlogs() {
 
     return (
         <ul>
-            <h2>Blogs de Roberto</h2>
 
             {
                 blogs.map((blog, index) => (

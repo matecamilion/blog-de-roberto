@@ -66,6 +66,7 @@ export default function FormularioDeRegistro() {
 
 
     return (
+        
         <>
             <form onSubmit={mandarDatosDeRegistro}>
                 <input ref ={nombreRef} type="text" placeholder="Nombre completo"/>
