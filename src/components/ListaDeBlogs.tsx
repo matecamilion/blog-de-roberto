@@ -70,10 +70,13 @@ export default function ListaDeBlogs() {
                                 </Link>
                             </div>
                         </div>
+                        
                     </article>
 
                 ))
             }
+           
         </ul>
+        
     )
 }

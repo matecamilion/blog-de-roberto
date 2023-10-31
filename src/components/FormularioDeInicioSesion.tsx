@@ -40,7 +40,7 @@ export default function FormularioDeInicioSesion() {
         if (respuesta.status != 200) {
             const error = await respuesta.json();
             alert(error.msg)
-        }
+        }   
 
         if (respuesta.status == 200) {
 
@@ -149,7 +149,7 @@ export default function FormularioDeInicioSesion() {
 
                         <p className="text-center text-sm text-gray-500">
                             No tenes cuenta?
-                            <Link className="underline" href="/auth/registrarse">Registrate</Link>
+                            <Link className="underline" href="/auth/registrarse">   Registrate</Link>
                         </p>
                     
                 </div>
